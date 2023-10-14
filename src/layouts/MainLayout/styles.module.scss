@@ -1,0 +1,70 @@
+.header {
+  @apply bg-white p-4 flex items-center justify-between;
+
+  border-bottom: 1px solid rgb(0 0 0 / 6%) !important;
+
+  &__brand {
+    @apply flex items-center gap-2 cursor-pointer;
+
+    &--title {
+      @apply font-bold text-base leading-6;
+
+      color: rgb(0 0 0 / 85%);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 48px;
+
+    &--user {
+      @apply flex items-center cursor-pointer font-medium text-xs leading-5 gap-2;
+
+      color: rgb(0 0 0 / 85%);
+
+      > img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.layout {
+  @apply min-h-screen flex flex-col;
+
+  &__inner {
+    @apply h-full;
+
+    &--page {
+      @apply m-6;
+
+      min-height: 280px;
+
+      &--content {
+        @apply rounded-sm p-4;
+      }
+    }
+  }
+}
+
+.help-card {
+  @apply rounded-sm p-4 mb-6 bg-white flex justify-between;
+
+  &__right {
+    @apply flex flex-col justify-between;
+
+    &--breadcrumb {
+      @apply mb-4;
+    }
+  }
+
+  &__left {
+    &--banner {
+      @apply bg-gray-700 text-white w-80 h-fit flex justify-center items-center rounded;
+    }
+  }
+}
+
+.ant-menu-light .ant-menu-item-selected {
+  @apply bg-red-600;
+}

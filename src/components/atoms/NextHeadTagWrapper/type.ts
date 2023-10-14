@@ -1,4 +1,4 @@
-export type NextHeadTagWrapperProps = {
+export type TNextHeadTagWrapperProps = {
   title: string;
   useBaseTitle?: boolean;
 };

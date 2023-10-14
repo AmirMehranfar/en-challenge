@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import { NextHeadTagWrapperProps } from './type'
+import { TNextHeadTagWrapperProps } from './type'
 import React from 'react'
 
 const NextHeadTagWrapper = ({
   title,
   useBaseTitle = true,
-}: NextHeadTagWrapperProps) => {
+}: TNextHeadTagWrapperProps) => {
   const shopName = "گروه صنعتی انتخاب";
 
   const baseTitle =
