@@ -3,14 +3,12 @@ import { Layout } from "antd";
 import styles from './styles.module.scss'
 import Header from './Header'
 import Sidebar from './Sidebar'
-import NextHeadTagWrapper from '@/components/atoms/NextHeadTagWrapper'
 import TLayout from './Layout.type'
 
 
-const MainLayout = ({ children, headTagProps }: TLayout): React.ReactElement => {
+const MainLayout = ({ children }: TLayout): React.ReactElement => {
   return (
     <>
-      {headTagProps && <NextHeadTagWrapper {...headTagProps} />}
       <Layout className={styles['layout']}>
         <Header />
         <Layout className={styles['layout__inner']}>

@@ -1,13 +1,29 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { Button, Form, Input, Typography } from "antd";
 import { useExtraAntdForm } from "@/utils/antd";
+import { authApi, authSlice, handlerResponse, useAppDispatch } from "@/store";
+import { TLoginFormInput } from "@/types/entity/user";
 
 const Login = (): JSX.Element => {
-  const [form] = Form.useForm<>();
+  const [form] = Form.useForm<TLoginFormInput>();
   const { hasError } = useExtraAntdForm(form);
+  const router = useRouter();
+  const [fetchLogin, { isLoading }] = authApi.useLoginMutation();
 
-  const onFinish = () => {
-    console.log("onFinish");
+  const dispatch = useAppDispatch();
+
+  const onFinish = async () => {
+    const result = handlerResponse(await fetchLogin(form.getFieldsValue()));
+    if (result.isOk) {
+      dispatch(
+        authSlice.actions.login({
+          ...result.data,
+        })
+      );
+      const redirectUrl = "/";
+      router.push(decodeURIComponent(redirectUrl));
+    }
   };
 
   return (
@@ -51,6 +67,7 @@ const Login = (): JSX.Element => {
                 htmlType={"submit"}
                 className="rounded"
                 disabled={hasError}
+                loading={isLoading}
               >
                 ورود به پنل
               </Button>

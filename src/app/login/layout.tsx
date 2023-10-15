@@ -1,14 +1,11 @@
+"use client";
 import EmptyLayout from "@/layouts/EmptyLayout";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Login",
-};
+import { JSXElementConstructor, ReactElement } from "react";
 
 export default function LoginLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactElement<any, string | JSXElementConstructor<any>>;
 }) {
   return <EmptyLayout>{children}</EmptyLayout>;
 }
