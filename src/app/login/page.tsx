@@ -21,7 +21,7 @@ const Login = (): JSX.Element => {
           ...result.data,
         })
       );
-      const redirectUrl = "/";
+      const redirectUrl = "/reports";
       router.push(decodeURIComponent(redirectUrl));
     }
   };

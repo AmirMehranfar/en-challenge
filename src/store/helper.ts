@@ -2,6 +2,7 @@
 import { SerializedError } from "@reduxjs/toolkit";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
+
 export function handlerResponse<T>(
   response: { data: T } | { error: FetchBaseQueryError | SerializedError }
 ): { data: T; error: string | null; isOk: boolean } {

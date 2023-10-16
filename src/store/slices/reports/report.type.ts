@@ -5,5 +5,5 @@ export interface GetAllReportRequestDto {
 }
 
 export interface GetAllReportResponseDto {
-  reportList: TReport[];
+  data: TReport[];
 }
