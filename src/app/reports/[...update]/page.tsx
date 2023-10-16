@@ -4,27 +4,33 @@ import { useExtraAntdForm } from "@/utils/antd";
 import { Button, Form, Input, TimePicker } from "antd";
 import React from "react";
 import locale from "antd/es/date-picker/locale/fa_IR";
-import dayjs from "dayjs";
-import reportApi from "@/store/slices/reports/report.api";
 import { TReport } from "@/types/entity/report";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import moment from "jalali-moment";
+import reportApi from "@/store/slices/reports/report.api";
+import calendar from "dayjs/plugin/calendar";
+import dayjs from "dayjs";
+dayjs.extend(calendar);
 
-const AddReport = (): JSX.Element => {
+const Update = (): JSX.Element => {
   const router = useRouter();
+  const param = useParams();
+
   useJalaliLocaleListener();
-  dayjs.calendar("jalali");
+
   const date = dayjs(new Date(), { jalali: true });
+  dayjs.calendar("jalali");
 
   const [form] = Form.useForm<TReport>();
   const { hasError } = useExtraAntdForm(form);
 
-  const [createReport, { isLoading: isCreateLoading }] =
-    reportApi.useCreateMutation();
+  const [updateReport, { isLoading: isUpdateLoading }] =
+    reportApi.useEditReportMutation();
 
   const onFinish = async (value: TReport) => {
     if (hasError) return;
-    await createReport({
+    await updateReport({
+      id: `${param?.update?.[1]?.toString()}`,
       date: moment(value.date).locale("en").format("YYYY-MM-DD"),
       description: value.description,
       time: moment(new Date(value.time)).format("HH:mm"),
@@ -84,7 +90,7 @@ const AddReport = (): JSX.Element => {
               </Form.Item>
               <Form.Item
                 name="time"
-                label={"تاریخ گزارش"}
+                label={"ساعت گزارش"}
                 rules={[
                   {
                     required: true,
@@ -104,10 +110,10 @@ const AddReport = (): JSX.Element => {
                   className="h-full"
                   key="submit"
                   htmlType="submit"
-                  disabled={isCreateLoading}
-                  loading={isCreateLoading}
+                  disabled={isUpdateLoading}
+                  loading={isUpdateLoading}
                 >
-                  افزودن
+                  ویرایش
                 </Button>
               )}
             </Form.Item>
@@ -118,4 +124,4 @@ const AddReport = (): JSX.Element => {
   );
 };
 
-export default AddReport;
+export default Update;

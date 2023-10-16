@@ -15,7 +15,7 @@ const Login = (): JSX.Element => {
 
   const onFinish = async () => {
     const result = handlerResponse(await fetchLogin(form.getFieldsValue()));
-    if (result.isOk) {
+    if (result.isOk && result?.data?.data) {
       dispatch(
         authSlice.actions.login({
           ...result.data,

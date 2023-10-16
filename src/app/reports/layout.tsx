@@ -8,9 +8,5 @@ export default function ReportLayout({
 }: {
   children: ReactElement<any, string | JSXElementConstructor<any>>;
 }) {
-  return (
-    <>      
-      <MainLayout>{children}</MainLayout>
-    </>
-  );
+  return <MainLayout>{children}</MainLayout>;
 }

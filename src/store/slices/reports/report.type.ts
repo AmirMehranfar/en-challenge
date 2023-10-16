@@ -11,3 +11,5 @@ export type CreateReportRequestDto = Omit<TReport, "id">;
 export type deleteReportRequestDto = {
   id: string;
 };
+
+export type EditReportRequestDto = TReport;

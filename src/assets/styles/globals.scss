@@ -29,5 +29,10 @@ a {
   [class*="ant-form-item"] {
     @apply mb-0;
   }
+  [class*="ant-picker"] {
+    @apply px-3 py-1 rounded-[2px];
+  }
+  [class*="ant-picker-input"] {
+    @apply p-0;
+  }
 }
-

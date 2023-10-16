@@ -5,6 +5,7 @@ import {
   GetAllReportResponseDto,
   CreateReportRequestDto,
   deleteReportRequestDto,
+  EditReportRequestDto,
 } from "./report.type";
 
 export default baseApi.injectEndpoints({
@@ -27,6 +28,13 @@ export default baseApi.injectEndpoints({
       query: ({ id }) => ({
         url: `/reports/${id}`,
         method: "DELETE",
+      }),
+    }),
+    editReport: builder.mutation<TReport, EditReportRequestDto>({
+      query: ({ id, ...arg }) => ({
+        url: `/reports/${id}`,
+        method: "PUT",
+        body: arg,
       }),
     }),
   }),
