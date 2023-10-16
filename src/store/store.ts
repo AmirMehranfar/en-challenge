@@ -38,4 +38,4 @@ setupListeners(store.dispatch);
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-setInterval(() => console.log(store.getState()), 3000);
+// setInterval(() => console.log(store.getState()), 3000);

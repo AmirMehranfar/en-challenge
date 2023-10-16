@@ -1,6 +1,6 @@
 
 import { ConfigProvider } from "antd";
-import faIR from "antd/locale/fa_IR";
+import fa_IR from "antd/lib/locale/fa_IR";
 import "./styles/globals.scss";
 import { Inter } from "next/font/google";
 import mainTheme from "@/assets/fonts/themes/main";
@@ -9,13 +9,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 function RootLayout({ children, ...pageProps }: any) {
   return (
-      <ConfigProvider theme={mainTheme} locale={faIR} direction="rtl">
-        <html dir="rtl" lang="fa" className="scroll-smooth">
-          <body className={inter.className}>
-            <Providers>{children}sss</Providers>
-          </body>
-        </html>
-      </ConfigProvider>
+    <html dir="rtl" lang={fa_IR} className="scroll-smooth">
+      <body className={inter.className}>
+        <ConfigProvider theme={mainTheme} locale={fa_IR} direction="rtl">
+          <Providers>{children}</Providers>
+        </ConfigProvider>
+      </body>
+    </html>
   );
 }
 

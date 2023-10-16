@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
-    "antd": "^5.10.0",
+    "antd": "^5.10.1",
+    "antd-jalali": "^1.0.3",
+    "dayjs": "^1.11.10",
+    "jalali-moment": "^3.3.11",
     "next": "^13.5.5-canary.16",
-    "next-redux-cookie-wrapper": "^2.2.1",
     "next-redux-wrapper": "^8.1.0",
     "react": "^18",
     "react-dom": "^18",

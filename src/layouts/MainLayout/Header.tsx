@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <Header className={styles['header']}>
       <div className={styles['header__brand']}>
-        <Typography.Text className={styles['header__brand--title']}>اسنوا</Typography.Text>
+        <Typography.Text className={styles['header__brand--title']}>گروه انتخاب</Typography.Text>
       </div>
       <div className={styles['header__actions']}>
         <div className={styles['header__actions--user']}>

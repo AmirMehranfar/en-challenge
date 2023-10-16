@@ -1,6 +1,11 @@
+import { TReport } from "@/types/entity/report";
 import { baseApi } from "../baseApi";
-import { GetAllReportRequestDto, GetAllReportResponseDto } from "./report.type";
-
+import {
+  GetAllReportRequestDto,
+  GetAllReportResponseDto,
+  CreateReportRequestDto,
+  deleteReportRequestDto,
+} from "./report.type";
 
 export default baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -9,6 +14,19 @@ export default baseApi.injectEndpoints({
         url: "/reports",
         method: "GET",
         params: arg,
+      }),
+    }),
+    create: builder.mutation<TReport, CreateReportRequestDto>({
+      query: (arg) => ({
+        url: "/reports",
+        method: "POST",
+        body: arg,
+      }),
+    }),
+    deleteReport: builder.mutation<TReport, deleteReportRequestDto>({
+      query: ({ id }) => ({
+        url: `/reports/${id}`,
+        method: "DELETE",
       }),
     }),
   }),

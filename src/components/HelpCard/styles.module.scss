@@ -1,0 +1,7 @@
+.help-card {
+  @apply rounded-sm p-4 mb-6 bg-white flex justify-between;
+
+  &__content {
+    @apply flex flex-col justify-between;
+  }
+}

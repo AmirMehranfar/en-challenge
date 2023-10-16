@@ -11,7 +11,7 @@ export const menu: MenuProps["items"] = [
     children: [
       {
         key: "submenu_1_1",
-        label: <Link href={"/reports/list"}>لیست گزارش ها </Link>,
+        label: <Link href={"/reports"}>لیست گزارش ها </Link>,
       },
     ],
   },
